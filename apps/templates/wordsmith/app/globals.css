@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"); */
+
+@layer base {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    @apply mb-4;
+  }
+
+  h1 {
+    @apply font-bold leading-tight xl:leading-snug text-3xl xl:text-4xl text-primary;
+  }
+
+  h2 {
+    @apply font-bold leading-tight xl:leading-snug text-2xl xl:text-3xl text-primary;
+  }
+
+  h3 {
+    @apply font-bold text-sm xl:text-base text-primary;
+  }
+
+  h4,
+  h5 {
+    @apply font-medium text-textDefault text-xs xl:text-sm overflow-hidden line-clamp-2;
+  }
+
+  h6 {
+    @apply font-bold tracking-widest text-xs xl:text-base text-primary cursor-pointer;
+  }
+
+  time {
+    @apply font-normal text-textDefault text-xs xl:text-sm;
+  }
+
+  input {
+    @apply text-primary text-sm xl:text-base border border-Gray rounded-xl w-[300px] md:w-[500px] h-[60px] placeholder:text-sm md:placeholder:text-base placeholder:font-[300] placeholder:text-textDefault p-5 focus:outline-none focus:border-blue-500;
+  }
+
+  label {
+    @apply text-primary font-medium text-sm md:text-base;
+  }
+
+  p {
+    @apply font-medium text-textDefault text-sm xl:text-base my-2;
+  }
+
+  blockquote {
+    @apply mt-8 xl:mt-12 px-4 py-3 mb-8 text-base xl:text-xl italic font-semibold border-l-4 border-primary bg-gray-100;
+  }
+
+  /* Fallback styles  */
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  ul,
+  ol {
+    @apply my-2;
+    margin-left: 0.5rem;
+  }
+
+  img {
+    @apply w-full max-w-full h-auto shadow-md rounded-2xl;
+  }
+}
+
+@layer components {
+  .blog-introduction {
+    @apply font-bold leading-tight xl:leading-snug text-2xl xl:text-3xl text-primary;
+  }
+
+  .blog-main-content {
+    @apply font-bold leading-tight xl:leading-snug text-xl xl:text-2xl text-primary;
+  }
+
+  .social-icons {
+    @apply text-[#f2f2f2] text-lg md:text-xl font-thin hover:text-white cursor-pointer transition ease-in-out delay-150 hover:rotate-12;
+  }
+
+  .form-social-icons {
+    @apply text-textDefault text-lg md:text-xl font-thin hover:text-gray-600 cursor-pointer transition ease-in-out delay-150 hover:rotate-12;
+  }
+}

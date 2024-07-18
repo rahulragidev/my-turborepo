@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Light theme colors */
+
+:root {
+	--light-text-color-base: 50, 50, 50;
+	--light-text-color-bright: 25, 25, 25;
+	--light-text-color-brighter: 12, 47, 12;
+	--light-text-color-brightest: 0, 0, 0;
+	--light-background-color: 255, 255, 255;
+	--light-foreground-color: 75, 75, 100;
+	/* Add other light theme color variables here */
+}
+
+/* Dark theme colors */
+:root {
+	--dark-text-color-base: 128, 128, 130;
+	/* Add other dark theme color variables here */
+	--dark-text-color-bright: 171, 176, 183;
+	--dark-text-color-brighter: 209, 216, 225;
+	--dark-text-color-brightest: 255, 255, 255;
+	--dark-background-color: 0, 0, 0;
+	--dark-foreground-color: 150, 150, 200;
+}
+
+/* Sepia theme colors */
+:root {
+	--sepia-text-color-base: 122, 96, 57;
+	/* Add other sepia theme color variables here */
+	--sepia-text-color-bright: 92, 65, 25;
+	--sepia-text-color-brighter: 68, 45, 10;
+	--sepia-text-color-brightest: 44, 27, 0;
+	--sepia-background-color: 248, 238, 214;
+	--sepia-foreground-color: 7, 17, 41;
+}
+
+/* Light theme */
+.light {
+	--text-color-base: var(--light-text-color-base);
+	--text-color-bright: var(--light-text-color-bright);
+	--text-color-brighter: var(--light-text-color-brighter);
+	--text-color-brightest: var(--light-text-color-brightest);
+	--background-color: var(--light-background-color);
+	--foreground-color: var(--light-foreground-color);
+}
+
+/* Dark theme */
+.dark {
+	--text-color-base: var(--dark-text-color-base);
+	--text-color-bright: var(--dark-text-color-bright);
+	--text-color-brighter: var(--dark-text-color-brighter);
+	--text-color-brightest: var(--dark-text-color-brightest);
+	--background-color: var(--dark-background-color);
+	--foreground-color: var(--dark-foreground-color);
+}
+
+/* Sepia theme */
+.sepia-theme {
+	--text-color-base: var(--sepia-text-color-base);
+	--text-color-bright: var(--sepia-text-color-bright);
+	--text-color-brighter: var(--sepia-text-color-brighter);
+	--text-color-brightest: var(--sepia-text-color-brightest);
+	--background-color: var(--sepia-background-color);
+	--foreground-color: var(--sepia-foreground-color);
+}
+
+html {
+	font-size: 16px;
+}
+
+html,
+body {
+	@apply text-lg tracking-wide p-0 m-0;
+	font-family: "Inter", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	color: rgba(var(--text-color-brightest), 1);
+	background: rgba(var(--background-color), 1);
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+h1 {
+	@apply text-6xl font-medium mt-8 my-4 -ml-1 tracking-tight;
+	color: rgba(var(--text-color-brightest), 1);
+}
+
+h2 {
+	@apply text-4xl font-medium mt-4 mb-2 tracking-tight;
+	color: rgba(var(--text-color-brighter), 1);
+}
+
+h3 {
+	@apply text-2xl mt-4 mb-2;
+	color: rgba(var(--text-color-brighter), 1);
+}
+
+h4 {
+	@apply text-xl my-2;
+	color: rgba(var(--text-color-brighter), 1);
+}
+
+h5 {
+	@apply text-lg my-2;
+	color: rgba(var(--text-color-brighter), 1);
+}
+
+h6 {
+	@apply uppercase font-normal tracking-wide my-2;
+	color: rgba(var(--text-color-brighter), 1);
+}
+
+p {
+	@apply text-lg leading-loose max-w-[100ch] tracking-tight;
+	color: rgb(var(--text-color-brightest), 1);
+}
+
+ol {
+	list-style-type: decimal;
+	@apply ml-8;
+}
+
+ul {
+	list-style-type: disc;
+	@apply ml-6;
+}
+
+img {
+	@apply w-auto max-w-full h-auto shadow-md rounded-lg my-4;
+}
+
+blockquote {
+	@apply border-l-2 border-slate-300 border-solid pl-4 italic my-8;
+}
+
+.navbar {
+	background-color: rgba(var(--foreground-color), 0.25);
+}
+
+.sub-page-card {
+	@apply min-w-[24vw] w-full rounded shadow-md px-2 py-2 no-underline appearance-none my-12;
+	background-color: rgba(var(--background-color), 0.25);
+	width: 32rem;
+}
+
+.sub-page-card:hover {
+	@apply transition-all;
+	background-color: rgba(var(--background-color), 0.5);
+}
+
+/* Content specific styling */
+.content {
+	a {
+		@apply text-blue-500 hover:text-blue-600 underline underline-offset-2 visited:text-purple-400;
+	}
+	ul,
+	ol {
+		@apply my-2;
+		ul,
+		ol {
+			@apply my-0;
+		}
+		p {
+			@apply my-0.5;
+		}
+	}
+}
