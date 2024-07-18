@@ -188,7 +188,7 @@ export const deleteAssets = async (
                 }
                 console.log("Commencing deletion of asset", assets[index]!.key!)
 
-                const deleteFromBucket = await deleteFile(assets[index]!.key!!)
+                const deleteFromBucket = await deleteFile(assets[index]!.key!)
                 if (deleteFromBucket.$metadata.httpStatusCode !== 200)
                     throw new GraphQLError(
                         `deletion failed on cloudflare for key ${assets[index]!.key!}`

@@ -1,5 +1,5 @@
-import { config } from "dotenv"
 import "reflect-metadata"
+import { config } from "dotenv"
 // import Redis from "ioredis"
 //
 
