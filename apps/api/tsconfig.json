@@ -1,0 +1,67 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@repo/typescript-config/base.json",
+    "compilerOptions": {
+      // Specify ECMAScript target version
+      "target": "ES2022",
+      
+      // Specify module code generation
+      "module": "NodeNext",
+      
+      // Specify module resolution strategy
+      "moduleResolution": "NodeNext",
+      
+      // Generate corresponding '.map' file
+      "sourceMap": true,
+      
+      // Do not remove comments from output
+      "removeComments": false,
+      
+      // Enable all strict type-checking options
+      "strict": true,
+      
+      // Disable strict checking of property initialization in classes
+      "strictPropertyInitialization": false,
+      
+      // Raise error on expressions and declarations with an implied 'any' type
+      "noImplicitAny": true,
+      
+      // Report error when not all code paths in function return a value
+      "noImplicitReturns": true,
+      
+      // Enable error reporting when 'this' is given the type 'any'
+      "noImplicitThis": true,
+  
+            
+      // Disallow inconsistently-cased references to the same file
+      "forceConsistentCasingInFileNames": true,
+      
+      // Emit design-type metadata for decorated declarations in source
+      "emitDecoratorMetadata": true,
+      
+      // Enable experimental support for decorators
+      "experimentalDecorators": true,
+      
+      // Specify output directory
+      "outDir": "dist/",
+      
+      // Specify base directory to resolve non-relative module names
+      "baseUrl": "./src/",
+      
+      // Specify multiple folders that act like './node_modules/@types'
+      "typeRoots": ["./node_modules/@types", "src/types"],
+      
+      // Specify a list of language service plugins
+      "plugins": [
+        {
+          "transform": "ts-type-checked/transformer"
+        }
+      ]
+    },
+    
+    // Specifies a list of glob patterns that match files to be included in compilation
+    "include": ["src/**/*.ts"],
+    
+    // Specifies a list of glob patterns that match files to be excluded from compilation
+    "exclude": ["node_modules"]
+  }
