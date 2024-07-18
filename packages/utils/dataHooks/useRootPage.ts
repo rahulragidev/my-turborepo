@@ -1,9 +1,9 @@
 import { useAuth } from "@clerk/nextjs"
+import fetchWithToken from "@repo/utils/fetchWithToken"
+import { PageResponse } from "@repo/utils/types"
 import { gql } from "graphql-request"
 import { GraphQLResponse } from "graphql-request/build/esm/types"
-import fetchWithToken from "@repo/utils/fetchWithToken"
 import useSWR, { SWRResponse } from "swr"
-import { PageResponse } from "@repo/utils/types"
 
 export const GET_ROOT_PAGE_QUERY = gql`
 	query ($siteId: String!) {

@@ -1,6 +1,6 @@
-import { Node as TipTapNode, NodeViewProps, SingleCommands } from "@tiptap/core"
-import { NodeViewWrapper, ReactNodeViewRenderer } from "@tiptap/react"
 import { cn } from "@repo/utils/cn"
+import { NodeViewProps, SingleCommands, Node as TipTapNode } from "@tiptap/core"
+import { NodeViewWrapper, ReactNodeViewRenderer } from "@tiptap/react"
 
 interface SetButtonOptions {
 	inline: boolean

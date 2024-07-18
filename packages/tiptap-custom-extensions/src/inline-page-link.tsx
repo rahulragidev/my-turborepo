@@ -1,4 +1,4 @@
-import { Node as TipTapNode, NodeViewRendererProps } from "@tiptap/core"
+import { NodeViewRendererProps, Node as TipTapNode } from "@tiptap/core"
 import { NodeViewWrapper, ReactNodeViewRenderer } from "@tiptap/react"
 import { FeatherIcon } from "lucide-react"
 import Link from "next/link"

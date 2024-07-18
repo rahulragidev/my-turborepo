@@ -1,13 +1,13 @@
+import Button from "@repo/ui/button"
+import { cn } from "@repo/utils/cn"
 import {
-	Node as TipTapNode,
 	NodeViewWrapper,
 	NodeViewWrapperProps,
 	ReactNodeViewRenderer,
+	Node as TipTapNode,
 	mergeAttributes,
 } from "@tiptap/react"
 import clsx from "clsx"
-import Button from "@repo/ui/button"
-import { cn } from "@repo/utils/cn"
 import Link from "next/link"
 import { ArrowRight, Trash } from "react-feather"
 

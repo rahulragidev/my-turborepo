@@ -1,8 +1,8 @@
+import fetchWithToken from "@repo/utils/fetchWithToken"
+import { PagesResponse } from "@repo/utils/types"
 import { Node as TipTapNode } from "@tiptap/core"
 import { gql } from "graphql-request"
 import { GraphQLResponse } from "graphql-request/build/esm/types"
-import fetchWithToken from "@repo/utils/fetchWithToken"
-import { PagesResponse } from "@repo/utils/types"
 
 // interface FeaturedBlogsSectionProps {
 //	// Define the props for your FeaturedBlogsSectionComponent here
