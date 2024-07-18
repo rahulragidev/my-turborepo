@@ -12,7 +12,7 @@ export type Scalars = {
   Boolean: { input: boolean; output: boolean; }
   Int: { input: number; output: number; }
   Float: { input: number; output: number; }
-  DateTime: { input: any; output: any; }
+  DateTimeISO: { input: any; output: any; }
   JSON: { input: any; output: any; }
   JSONObject: { input: any; output: any; }
 };
@@ -40,7 +40,7 @@ export type AssetResponse = {
   asset?: Maybe<Asset>;
   message?: Maybe<Scalars['String']['output']>;
   statusCode?: Maybe<Scalars['Int']['output']>;
-  success?: Maybe<Scalars['Boolean']['output']>;
+  success: Scalars['Boolean']['output'];
 };
 
 export type AssetsResponse = {
@@ -48,7 +48,7 @@ export type AssetsResponse = {
   assets?: Maybe<Array<Asset>>;
   message?: Maybe<Scalars['String']['output']>;
   statusCode?: Maybe<Scalars['Int']['output']>;
-  success?: Maybe<Scalars['Boolean']['output']>;
+  success: Scalars['Boolean']['output'];
 };
 
 export enum AuthRole {
@@ -64,7 +64,7 @@ export type ChangeSiteTemplateResponse = {
   message?: Maybe<Scalars['String']['output']>;
   siteStatus?: Maybe<SiteStatusResponse>;
   statusCode?: Maybe<Scalars['Int']['output']>;
-  success?: Maybe<Scalars['Boolean']['output']>;
+  success: Scalars['Boolean']['output'];
 };
 
 /** Create Sites Response */
@@ -88,7 +88,7 @@ export type DeploySiteResponse = {
   siteId?: Maybe<Scalars['String']['output']>;
   status?: Maybe<SiteStatus>;
   statusCode?: Maybe<Scalars['Int']['output']>;
-  success?: Maybe<Scalars['Boolean']['output']>;
+  success: Scalars['Boolean']['output'];
 };
 
 export type Domain = {
@@ -124,7 +124,7 @@ export type DomainConfigurationResponse = {
   data?: Maybe<DomainConfigurationInterface>;
   message?: Maybe<Scalars['String']['output']>;
   statusCode?: Maybe<Scalars['Int']['output']>;
-  success?: Maybe<Scalars['Boolean']['output']>;
+  success: Scalars['Boolean']['output'];
 };
 
 export type DomainCreator = {
@@ -141,7 +141,7 @@ export type DomainInformationResponse = {
   data: DomainResponse;
   message?: Maybe<Scalars['String']['output']>;
   statusCode?: Maybe<Scalars['Int']['output']>;
-  success?: Maybe<Scalars['Boolean']['output']>;
+  success: Scalars['Boolean']['output'];
 };
 
 export type DomainPriceResponse = {
@@ -149,7 +149,7 @@ export type DomainPriceResponse = {
   data: Response;
   message?: Maybe<Scalars['String']['output']>;
   statusCode?: Maybe<Scalars['Int']['output']>;
-  success?: Maybe<Scalars['Boolean']['output']>;
+  success: Scalars['Boolean']['output'];
 };
 
 /** Domain Information */
@@ -158,7 +158,7 @@ export type DomainRegisterResponse = {
   data: ResponseInterface;
   message?: Maybe<Scalars['String']['output']>;
   statusCode?: Maybe<Scalars['Int']['output']>;
-  success?: Maybe<Scalars['Boolean']['output']>;
+  success: Scalars['Boolean']['output'];
 };
 
 /** Domain Information */
@@ -188,10 +188,10 @@ export enum GitProvider {
 /** Git Repository / Source */
 export type GitRepository = {
   __typename?: 'GitRepository';
-  ref?: Maybe<Scalars['String']['output']>;
+  ref: Scalars['String']['output'];
   repoId: Scalars['Float']['output'];
-  target?: Maybe<Scalars['String']['output']>;
-  type?: Maybe<GitProvider>;
+  target: Scalars['String']['output'];
+  type: GitProvider;
   url?: Maybe<Scalars['String']['output']>;
 };
 
@@ -200,7 +200,7 @@ export type GitRepositoryInput = {
   ref?: InputMaybe<Scalars['String']['input']>;
   repoId: Scalars['String']['input'];
   target?: InputMaybe<Scalars['String']['input']>;
-  type?: InputMaybe<GitProvider>;
+  type?: GitProvider;
   url?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -324,7 +324,7 @@ export type MutationRemoveParent_DeprecatedArgs = {
 
 
 export type MutationRemoveSiteLogoArgs = {
-  logoType?: InputMaybe<Scalars['String']['input']>;
+  logoType?: Scalars['String']['input'];
   siteId: Scalars['String']['input'];
 };
 
@@ -398,16 +398,16 @@ export type NewDomain = {
 export type Page = {
   __typename?: 'Page';
   bannerImage?: Maybe<Asset>;
-  body?: Maybe<Scalars['String']['output']>;
+  body: Scalars['String']['output'];
   children: Array<Page>;
-  createdAt: Scalars['DateTime']['output'];
+  createdAt: Scalars['DateTimeISO']['output'];
   draftBody?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
   isFeatured: Scalars['Boolean']['output'];
-  isPublic?: Maybe<Scalars['Boolean']['output']>;
+  isPublic: Scalars['Boolean']['output'];
   jsonBody?: Maybe<Scalars['JSON']['output']>;
   jsonDraftBody?: Maybe<Scalars['JSON']['output']>;
-  lastPublishedAt?: Maybe<Scalars['DateTime']['output']>;
+  lastPublishedAt?: Maybe<Scalars['DateTimeISO']['output']>;
   metaDescription?: Maybe<Scalars['String']['output']>;
   metaTitle?: Maybe<Scalars['String']['output']>;
   name: Scalars['String']['output'];
@@ -416,7 +416,7 @@ export type Page = {
   priority: Scalars['Int']['output'];
   site: Scalars['ID']['output'];
   slug: Scalars['String']['output'];
-  updatedAt: Scalars['DateTime']['output'];
+  updatedAt: Scalars['DateTimeISO']['output'];
 };
 
 export enum PageFilterEnum {
@@ -430,7 +430,7 @@ export type PageResponse = {
   data?: Maybe<Page>;
   message?: Maybe<Scalars['String']['output']>;
   statusCode?: Maybe<Scalars['Int']['output']>;
-  success?: Maybe<Scalars['Boolean']['output']>;
+  success: Scalars['Boolean']['output'];
 };
 
 export type PagesResponse = {
@@ -438,7 +438,7 @@ export type PagesResponse = {
   data?: Maybe<Array<Page>>;
   message?: Maybe<Scalars['String']['output']>;
   statusCode?: Maybe<Scalars['Int']['output']>;
-  success?: Maybe<Scalars['Boolean']['output']>;
+  success: Scalars['Boolean']['output'];
 };
 
 export type Pagination = {
@@ -626,12 +626,12 @@ export type ResponseSchema = {
   __typename?: 'ResponseSchema';
   message?: Maybe<Scalars['String']['output']>;
   statusCode?: Maybe<Scalars['Int']['output']>;
-  success?: Maybe<Scalars['Boolean']['output']>;
+  success: Scalars['Boolean']['output'];
 };
 
 export type Site = {
   __typename?: 'Site';
-  createdAt: Scalars['DateTime']['output'];
+  createdAt: Scalars['DateTimeISO']['output'];
   customDomain?: Maybe<Array<VercelProjectDomain>>;
   desktopLogo?: Maybe<Asset>;
   /** @deprecated use rootPage instead */
@@ -649,7 +649,7 @@ export type Site = {
   slug: Scalars['String']['output'];
   template: Scalars['ID']['output'];
   textLogo?: Maybe<Scalars['String']['output']>;
-  updatedAt: Scalars['DateTime']['output'];
+  updatedAt: Scalars['DateTimeISO']['output'];
   url?: Maybe<Scalars['String']['output']>;
   vercelProjectId?: Maybe<Scalars['String']['output']>;
 };
@@ -659,12 +659,12 @@ export type SiteDomainsResponse = {
   data?: Maybe<VercelProjectDomainsResponse>;
   message?: Maybe<Scalars['String']['output']>;
   statusCode?: Maybe<Scalars['Int']['output']>;
-  success?: Maybe<Scalars['Boolean']['output']>;
+  success: Scalars['Boolean']['output'];
 };
 
 export type SiteInput = {
   slug: Scalars['String']['input'];
-  templateId?: InputMaybe<Scalars['String']['input']>;
+  templateId?: Scalars['String']['input'];
 };
 
 /** Site Response */
@@ -673,7 +673,7 @@ export type SiteResponse = {
   data?: Maybe<Site>;
   message?: Maybe<Scalars['String']['output']>;
   statusCode?: Maybe<Scalars['Int']['output']>;
-  success?: Maybe<Scalars['Boolean']['output']>;
+  success: Scalars['Boolean']['output'];
 };
 
 /** Site Status */
@@ -690,7 +690,7 @@ export type SiteStatusResponse = {
   data?: Maybe<SiteStatus>;
   message?: Maybe<Scalars['String']['output']>;
   statusCode?: Maybe<Scalars['Int']['output']>;
-  success?: Maybe<Scalars['Boolean']['output']>;
+  success: Scalars['Boolean']['output'];
 };
 
 /** Sites Response */
@@ -699,7 +699,7 @@ export type SitesResponse = {
   data?: Maybe<Array<Site>>;
   message?: Maybe<Scalars['String']['output']>;
   statusCode?: Maybe<Scalars['Int']['output']>;
-  success?: Maybe<Scalars['Boolean']['output']>;
+  success: Scalars['Boolean']['output'];
 };
 
 export type StripePrice = {
@@ -799,17 +799,17 @@ export type StripeSubscription = {
 export type Template = {
   __typename?: 'Template';
   bannerImage?: Maybe<Scalars['String']['output']>;
-  createdAt: Scalars['DateTime']['output'];
+  createdAt: Scalars['DateTimeISO']['output'];
   creator?: Maybe<Scalars['ID']['output']>;
   demoLink?: Maybe<Scalars['String']['output']>;
   description?: Maybe<Scalars['String']['output']>;
-  framework?: Maybe<FrameworkEnum>;
+  framework: FrameworkEnum;
   gitSource: GitRepository;
   id: Scalars['ID']['output'];
   name: Scalars['String']['output'];
   /** The Product from Stripe */
   stripeProduct?: Maybe<StripeProduct>;
-  updatedAt: Scalars['DateTime']['output'];
+  updatedAt: Scalars['DateTimeISO']['output'];
 };
 
 /** Template Input */
@@ -830,7 +830,7 @@ export type TemplateResponse = {
   data?: Maybe<Template>;
   message?: Maybe<Scalars['String']['output']>;
   statusCode?: Maybe<Scalars['Int']['output']>;
-  success?: Maybe<Scalars['Boolean']['output']>;
+  success: Scalars['Boolean']['output'];
 };
 
 /** Template Update Input */
@@ -850,7 +850,7 @@ export type TemplatesResponse = {
   data?: Maybe<Array<Template>>;
   message?: Maybe<Scalars['String']['output']>;
   statusCode?: Maybe<Scalars['Int']['output']>;
-  success?: Maybe<Scalars['Boolean']['output']>;
+  success: Scalars['Boolean']['output'];
 };
 
 export type UpdatePageInput = {
@@ -888,21 +888,21 @@ export type UpdateUserInput = {
 /** User model */
 export type User = {
   __typename?: 'User';
-  createdAt: Scalars['DateTime']['output'];
+  createdAt: Scalars['DateTimeISO']['output'];
   email: Scalars['String']['output'];
   id: Scalars['ID']['output'];
   name?: Maybe<Scalars['String']['output']>;
-  onboardingState?: Maybe<Scalars['Int']['output']>;
+  onboardingState: Scalars['Int']['output'];
   role: AuthRole;
   sites?: Maybe<Array<Site>>;
   subscription?: Maybe<StripeSubscription>;
-  updatedAt: Scalars['DateTime']['output'];
+  updatedAt: Scalars['DateTimeISO']['output'];
 };
 
 export type UserInput = {
   email: Scalars['String']['input'];
   name: Scalars['String']['input'];
-  onboardingState?: InputMaybe<Scalars['Int']['input']>;
+  onboardingState?: Scalars['Int']['input'];
   trialExpires: Scalars['String']['input'];
 };
 
@@ -912,7 +912,7 @@ export type UserResponse = {
   data?: Maybe<User>;
   message?: Maybe<Scalars['String']['output']>;
   statusCode?: Maybe<Scalars['Int']['output']>;
-  success?: Maybe<Scalars['Boolean']['output']>;
+  success: Scalars['Boolean']['output'];
 };
 
 /** Domain Response from vercel */

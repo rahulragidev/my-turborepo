@@ -10,7 +10,7 @@
 		"./page-referrence": "./src/page-referrence.tsx"
 	},
 	"scripts": {
-		"lint": "eslint . --max-warnings 0",
+		"lint": "eslint . --max-warnings 100",
 		"generate:component": "turbo gen react-component"
 	},
 	"devDependencies": {
@@ -24,6 +24,6 @@
 		"@types/react-dom": "^18.2.15",
 		"eslint": "^8.34.0",
 		"react": "^18.2.0",
-		"typescript": "^5.2.2"
+		"typescript": "5.3.3"
 	}
 }

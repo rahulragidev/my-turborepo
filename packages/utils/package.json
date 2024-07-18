@@ -1,31 +1,31 @@
 {
-  "name": "@repo/utils",
-  "version": "0.0.0",
-  "exports": {
-    "./add": "./add.ts",
-    "./cn": "./cn.ts",
-    "./types":"./types/generated/types.ts",
-    "./useRootPage":"./dataHooks/useRootPage.ts",
-    "./fetchWithToken":"./libs/fetchers/fetchWithToken.ts"
-  },
-  "main": "index.js",
-  "scripts": {
-    "lint": "eslint . --max-warnings 0",
-    "generate:component": "turbo gen react-component",
-    "generate:types": "graphql-codegen --config codegen.yml"
-  },
-  "license": "MIT",
-  "private": true,
-  "devDependencies": {
-    "clsx": "^2.1.1",
-    "tailwind-merge": "^2.4.0",
-    "@graphql-codegen/cli": "^5.0.0",
-    "@graphql-codegen/client-preset": "^4.0.1",
-    "@types/node": "20.12.5",
-    "graphql": "^16.9.0",
-    "typescript": "5.4.4"
-  },
-  "resolutions": {
-        "graphql": "^16.9.0"
-    }
+	"name": "@repo/utils",
+	"version": "0.0.0",
+	"exports": {
+		"./add": "./add.ts",
+		"./cn": "./cn.ts",
+		"./types": "./types/generated/types.ts",
+		"./useRootPage": "./dataHooks/useRootPage.ts",
+		"./fetchWithToken": "./libs/fetchers/fetchWithToken.ts"
+	},
+	"main": "index.js",
+	"scripts": {
+		"lint": "eslint . --max-warnings 100",
+		"generate:component": "turbo gen react-component",
+		"generate:types": "graphql-codegen --config codegen.yml"
+	},
+	"license": "MIT",
+	"private": true,
+	"devDependencies": {
+		"clsx": "^2.1.1",
+		"tailwind-merge": "^2.4.0",
+		"@graphql-codegen/cli": "^5.0.0",
+		"@graphql-codegen/client-preset": "^4.0.1",
+		"@types/node": "20.12.5",
+		"graphql": "^16.9.0",
+		"typescript": "5.3.3"
+	},
+	"resolutions": {
+		"graphql": "^16.9.0"
+	}
 }

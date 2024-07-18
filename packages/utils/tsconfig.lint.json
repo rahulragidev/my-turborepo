@@ -3,6 +3,13 @@
 	"compilerOptions": {
 		"outDir": "dist"
 	},
-	"include": ["src", "turbo"],
+	"include": [
+		"src",
+		"add.ts",
+		"cn.ts",
+		"dataHooks/**/*.ts",
+		"libs/fetchers/**/*.ts",
+		"types/generated/**/*.ts"
+	],
 	"exclude": ["node_modules", "dist"]
 }

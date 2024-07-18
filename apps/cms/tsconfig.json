@@ -23,6 +23,7 @@
 		]
 	},
 	"include": [
+		"./pages/api/keys.js",
 		"next-env.d.ts",
 		"**/*.ts",
 		"**/*.tsx",
