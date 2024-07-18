@@ -1,0 +1,12 @@
+# Allow all crawlers
+User-agent: *
+Allow: /index
+Allow: /pricing
+Allow: /privacy
+Allow: /refund
+Allow: /terms
+
+# Disallow
+Disallow: /wp-content/
+Disallow: /wordpress/
+Disallow: *.php
