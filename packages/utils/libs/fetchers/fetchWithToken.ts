@@ -1,6 +1,5 @@
 import { GetToken } from "@clerk/types"
 import { GraphQLClient, RequestDocument } from "graphql-request"
-import { process } from "node"
 
 export type FetchWithTokenArgs = {
 	query: RequestDocument
