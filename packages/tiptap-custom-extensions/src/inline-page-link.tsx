@@ -9,20 +9,20 @@ export interface PageReferenceOptions {
 	HTMLAttributes: Record<string, any>
 }
 
-// declare module "@tiptap/core" {
-// 	interface Commands<ReturnType> {
-// 		inlinePageLink: {
-// 			/**
-// 			 * Set a highlight mark
-// 			 */
-// 			addPageLink: (attributes?: {
-// 				href: string
-// 				name: string
-// 				isPublic: boolean
-// 			}) => ReturnType
-// 		}
-// 	}
-// }
+declare module "@tiptap/core" {
+	interface Commands<ReturnType> {
+		inlinePageLink: {
+			/**
+			 * Set a highlight mark
+			 */
+			addPageLink: (attributes?: {
+				href: string
+				name: string
+				isPublic: boolean
+			}) => ReturnType
+		}
+	}
+}
 
 const InlinePageLinkNodeView = (props: NodeViewRendererProps) => {
 	const { editor } = props
