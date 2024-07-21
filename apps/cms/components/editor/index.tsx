@@ -19,7 +19,6 @@ import defaultEditorContent from "./default-content"
 import defaultExtensions from "./extensions"
 import ImageResizer from "./extensions/image-resizer"
 // import { setImageUploadToken } from "./plugins/upload-images"
-import ButtonNode from "@repo/tiptap-custom-extensions/button-node"
 import { cn } from "lib/utils"
 import defaultEditorProps from "./props"
 import NovelContext from "./provider"
@@ -119,7 +118,6 @@ const Editor = ({
 		extensions: [
 			...defaultExtensions,
 			...extensions,
-			ButtonNode,
 			TiptapLink.extend({
 				exitable: true,
 			}),
