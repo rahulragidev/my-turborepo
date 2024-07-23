@@ -153,8 +153,8 @@ const PageUrl = ({ siteId, pageSlug }: { siteId: string; pageSlug?: string[] }) 
 			target="_blank"
 			rel="noreferrer"
 			href={url}
-			className="flex items-center md:space-x-1 bg-slate-900 hover:bg-slate-800/75 p-2 rounded-full md:rounded">
-			<span className="hidden md:block">Preview</span>
+			className="flex items-center md:space-x-1 bg-slate-900 hover:bg-slate-800/75 py-3 px-4 rounded-full md:rounded">
+			<span className="hidden md:block">Live View</span>
 			{/* <Eye height={16} /> */}
 			<ArrowUpRight height={16} className="text-green-500 md:-ml-4" />
 			{/* {siteData?.data?.data?.primaryDomain} */}

@@ -2,17 +2,15 @@
 
 import { Editor, Range } from "@tiptap/core"
 import Button from "components/Button"
-import Input from "components/form/Input"
 import CustomDialogBox from "components/layouts/CustomDialogBox"
 import { gql } from "graphql-request"
 import fetchWithToken from "libs/fetchers/fetchWithToken"
-import createPage from "libs/fetchers/page/createPage"
 import Link from "next/link"
-import { useCallback, useState } from "react"
+import { useMemo, useState } from "react"
 import { ArrowRight } from "react-feather"
-import toast from "react-hot-toast"
 import useSWR, { SWRResponse } from "swr"
 import { SiteResponse, UserResponse } from "types/generated/types"
+import CreateSubPageForm from "./create-sub-page-form"
 
 export const SITE_QUERY = gql`
 	query site($id: String!) {
@@ -57,7 +55,6 @@ const AddSubPageDialogComponent = ({
 	const [isCreating, setIsCreating] = useState(false)
 	const [pageModelOpen, setPageModelOpen] = useState(defaultOpen)
 
-	console.log("range from AddSubPageDialogComponent", range)
 	const siteId =
 		typeof editor.options?.editorProps?.attributes === "object"
 			? (editor.options.editorProps.attributes.siteId as string)
@@ -92,84 +89,90 @@ const AddSubPageDialogComponent = ({
 			})
 	)
 
-	const handleCreatePage = useCallback(async () => {
-		try {
-			debugger
-			console.log("create page", {
-				name: pageName,
-				siteId,
-				parent: parentId,
-				token,
-			})
-			setIsCreating(true)
+	//const handleCreatePage = useCallback(async () => {
+	//	try {
+	//		debugger
+	//		console.log("create page", {
+	//			name: pageName,
+	//			siteId,
+	//			parent: parentId,
+	//			token,
+	//		})
+	//		setIsCreating(true)
 
-			// creatingPage from the createPage function in the libs/fetchers folder
-			const response = await createPage({
-				siteId,
-				name: pageName,
-				parent: parentId,
-				token,
-			})
+	//		// creatingPage from the createPage function in the libs/fetchers folder
+	//		const response = await createPage({
+	//			siteId,
+	//			name: pageName,
+	//			parent: parentId,
+	//			token,
+	//		})
 
-			if (response.data?.success) {
-				const page = response.data?.data
-				if (!page) throw new Error("No page data returned.")
+	//		if (response.data?.success) {
+	//			const page = response.data?.data
+	//			if (!page) throw new Error("No page data returned.")
 
-				const canInsertPageNode = editor.can().insertContent({
-					type: "page-node",
-					attrs: { id: page.id, slug: page.slug, name: page.name },
-				})
-				if (!canInsertPageNode) {
-					throw new Error("Editor Cannot Add a page node.")
-				}
-				editor
-					.chain()
-					.focus()
-					.setPage({
-						id: page.id as string,
-						slug: page.slug as string,
-						name: page.name as string,
-					})
-					.enter()
-					.run()
-				setIsCreating(false)
-				onClose()
-			}
-		} catch (error: any) {
-			setIsCreating(false)
-			toast.error(`Error: ${error.message}`)
+	//			const canInsertPageNode = editor.can().insertContent({
+	//				type: "page-node",
+	//				attrs: { id: page.id, slug: page.slug, name: page.name },
+	//			})
+	//			if (!canInsertPageNode) {
+	//				throw new Error("Editor Cannot Add a page node.")
+	//			}
+	//			editor
+	//				.chain()
+	//				.focus()
+	//				.setPage({
+	//					id: page.id as string,
+	//					slug: page.slug as string,
+	//					name: page.name as string,
+	//				})
+	//				.enter()
+	//				.run()
+	//			setIsCreating(false)
+	//			onClose()
+	//		}
+	//	} catch (error: any) {
+	//		setIsCreating(false)
+	//		toast.error(`Error: ${error.message}`)
+	//	}
+	//}, [pageName, siteId, parentId, token, editor, onClose])
+
+	const allowedToCreatePage = useMemo(() => {
+		const noOfCurrentPages = siteData?.data?.data?.pages?.length ?? 0
+		const subscriptionActive = userData?.data?.data?.subscription?.status === "active"
+		if (noOfCurrentPages < 4 || subscriptionActive) {
+			return true
 		}
-	}, [pageName, siteId, parentId, token, editor, onClose])
+		return false
+	}, [siteData?.data?.data?.pages?.length, userData?.data?.data?.subscription?.status])
 
-	// renderContent
-	const renderContent = useCallback(() => {
-		const allowedToCreatePage =
-			(siteData?.data?.data?.pages?.length &&
-				siteData?.data?.data?.pages?.length < 4) ||
-			userData?.data?.data?.subscription?.status === "active"
+	// form actions
 
-		if (allowedToCreatePage) {
-			return (
-				<div className="p-4 space-y-4">
-					<h2>Add A Sub Page</h2>
-					<Input
-						type="text"
-						value={pageName}
-						onChange={e => setPageName(e.target.value)}
-						name="page-name"
-					/>
-					<div className="flex items-center justify-end gap-2">
-						<Button variant="tertiary">
-							<span>Cancel</span>
-						</Button>
-						<Button loading={isCreating} onClick={() => handleCreatePage()}>
-							<span>Create Sub Page</span>
-						</Button>
-					</div>
-				</div>
-			)
-		}
+	const initialFormState = {
+		message: "",
+	}
+
+	//const { pending } = useFormStatus()
+
+	if (allowedToCreatePage) {
 		return (
+			<CustomDialogBox
+				open={pageModelOpen}
+				onOpenChange={open => setPageModelOpen(open)}>
+				<CreateSubPageForm
+					editor={editor}
+					parentId={parentId}
+					siteId={siteId}
+					onClose={onClose}
+				/>
+			</CustomDialogBox>
+		)
+	}
+	return (
+		<CustomDialogBox
+			open={pageModelOpen}
+			onOpenChange={open => setPageModelOpen(open)}>
 			<div className="p-4 space-y-4">
 				<h2 className="text-2xl">Limit Reached</h2>
 				<p className="text-sm text-slate-300">
@@ -186,19 +189,6 @@ const AddSubPageDialogComponent = ({
 					</Link>
 				</div>
 			</div>
-		)
-	}, [
-		handleCreatePage,
-		isCreating,
-		pageName,
-		siteData?.data?.data?.pages?.length,
-		userData?.data?.data?.subscription?.status,
-	])
-	return (
-		<CustomDialogBox
-			open={pageModelOpen}
-			onOpenChange={open => setPageModelOpen(open)}>
-			{renderContent()}
 		</CustomDialogBox>
 	)
 }

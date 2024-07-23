@@ -115,7 +115,7 @@ const PageActionButton = () => {
 		return (
 			<Button
 				// fixing optical alignment with Icon
-				className="p-2 rounded-full md:rounded"
+				className="px-4 py-3 rounded-full md:rounded"
 				disabled={
 					(!pageData && !pageError) || !page || !siteId || siteStatusError
 				}

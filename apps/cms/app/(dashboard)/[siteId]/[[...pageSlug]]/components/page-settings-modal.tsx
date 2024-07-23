@@ -5,6 +5,7 @@ import usePageBySlug from "dataHooks/usePage"
 import useSite from "dataHooks/useSite"
 import { gql } from "graphql-request"
 import { GraphQLResponse } from "graphql-request/build/esm/types"
+import { cn } from "lib/utils"
 import fetchWithToken from "libs/fetchers/fetchWithToken"
 import Slugify from "libs/slugify"
 import { CheckCircle2Icon, EyeOff, Lock, Settings, X } from "lucide-react"
@@ -70,6 +71,7 @@ const PageSettings = () => {
 			setLocalPage(data?.data?.data as Page)
 		}
 	}, [data?.data?.data, data?.data?.success])
+
 	const timestamps = useMemo(
 		() => ({
 			createdAt: DateTime.fromISO(data?.data?.data?.createdAt).toFormat(
@@ -170,15 +172,6 @@ const PageSettings = () => {
 		}
 	}
 
-	// Reset deletePageName on pageSlug change, and on open
-	// if (!data && !error) {
-	// 	return (
-	// 		<Sheet>
-	// 			<Loader className="animate-spin" height={16} />
-	// 		</Sheet>
-	// 	)
-	// }
-
 	return (
 		<Sheet
 			onOpenChange={open => {
@@ -192,7 +185,7 @@ const PageSettings = () => {
 				disabled={!data && !error}>
 				<Settings size={16} />
 			</SheetTrigger>
-			<SheetContent>
+			<SheetContent className={cn("")}>
 				{/* Header */}
 				<div className="flex justify-between items-center py-6 px-12 w-full border-b border-slate-900">
 					<SheetTitle>
@@ -349,7 +342,7 @@ const PageSettings = () => {
 					</div>
 				</div>
 
-				{/* Delecte Section. Hide in Index Page */}
+				{/* Delete Section. Hide in Index Page */}
 				{localPage.slug !== "index" && (
 					<div className="flex flex-col gap-2 py-6 px-10 w-full border-b border-slate-900">
 						<div className="space-y-2">

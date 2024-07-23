@@ -51,14 +51,6 @@ const UpdateSiteLogoForm = ({ site }: Props) => {
                     children: "This is the text form logo of your website."
                 }}
             />
-            <Field
-                label="Square Logo"
-                name="mobilelogo"
-                type="file"
-                formControlProps={{
-                    defaultValue: ""
-                }}
-            />
             <div className="flex justify-end items-center">
                 <ButtonWithFeedback type="submit" variant="primary">
                     Update

@@ -7,7 +7,7 @@ const CustomDialogBox = (props: RadixDialog.DialogProps & { className?: string }
 
 	const MotionContent = motion(RadixDialog.Content)
 	const modalClassName = cn(
-		"bg-slate-950/90 backdrop-blur border-2 border-solid border-slate-700/40 rounded-2xl  shadow-xl  fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  w-[90vw] max-w-[30rem] focus:outline-none max-h-[40vh] overflow-y-scroll",
+		"bg-slate-950/90 backdrop-blur border-2 border-solid border-slate-700/40 rounded-2xl  shadow-xl  fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  w-[90vw] max-w-[30rem] focus:outline-none max-h-[40vh] h-auto overflow-y-scroll",
 		className
 	)
 	return (

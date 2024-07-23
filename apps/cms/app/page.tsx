@@ -27,6 +27,13 @@ const Home = async () => {
 						</p>
 
 						<div className="flex items-center space-x-2 my-4">
+							{/*{numberOfCurrentSites ? (
+								<p className="text-gray-500">
+									You have {numberOfCurrentSites} sites
+								</p>
+							) : (
+								<p className="text-gray-500">You have no sites</p>
+							)}*/}
 							<HeroCta />
 						</div>
 					</div>

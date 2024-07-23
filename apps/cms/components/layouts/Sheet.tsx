@@ -2,7 +2,6 @@
 
 import * as RadixDialog from "@radix-ui/react-dialog"
 import clsx from "clsx"
-import { motion } from "framer-motion"
 import { ReactNode } from "react"
 import { twMerge } from "tailwind-merge"
 
@@ -12,7 +11,7 @@ const SheetTrigger = RadixDialog.Trigger
 const SheetClose = RadixDialog.Close
 const SheetTitle = RadixDialog.Title
 
-const MotionRadixDialogContent = motion(RadixDialog.Content)
+// const MotionRadixDialogContent = motion(RadixDialog.Content)
 
 const SheetContent = ({
 	children,
@@ -38,41 +37,21 @@ const SheetContent = ({
 		}
 	}
 
-	const initialXYValues = () => {
-		switch (side) {
-			case "left":
-				return { x: -100, y: 0 }
-			case "right":
-				return { x: 100, y: 0 }
-			case "top":
-				return { x: 0, y: -100 }
-			case "bottom":
-				return { x: 0, y: 100 }
-			default:
-				return { x: 100, y: 0 }
-		}
-	}
-
 	return (
 		<RadixDialog.Portal>
 			<RadixDialog.Overlay className="fixed inset-0 w-screen h-screen bg-slate-950/30 backdrop-blur-sm" />
-			<MotionRadixDialogContent
-				initial={{ x: initialXYValues().x, y: initialXYValues().y }}
-				animate={{ x: 0, y: 0 }}
-				exit={{ x: initialXYValues().x, y: initialXYValues().y }}
-				transition={{
-					type: "easeInOut",
-				}}
+			<RadixDialog.Content
 				className={twMerge(
 					clsx(
+						"sheet-animate",
 						"fixed bg-slate-950 overflow-y-scroll shadow-2xl z-[9999]",
-						"h-screen md:w-[33vw] min-w-[600px] max-md:w-full",
+						"h-screen md:w-[33vw] min-w-[600px] max-md:w-full transition-all duration-300 ease-in-out",
 						position(),
 						className
 					)
 				)}>
 				{children}
-			</MotionRadixDialogContent>
+			</RadixDialog.Content>
 		</RadixDialog.Portal>
 	)
 }

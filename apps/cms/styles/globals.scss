@@ -291,3 +291,34 @@ the scrollbar plugin to your tailwind.config.js */
 .animate-marquee:hover {
 	animation-play-state: paused;
 }
+
+/** 
+ * Experimental: Custom CSS for dialog transition effect
+*/
+
+// dialog {
+//	/* UPDATE: -- open / syncs styles with dialog state */
+//	--open: 0;
+//	/* READ: --closed / exposed for styling convenience */
+//	--closed: calc( (var(--open) - 1) * -1);
+
+//	transform: translateY(calc(var (--closed) * -50%));
+//	&, &::backdrop {
+//		/* This works like a conditional statement */
+//		--duration: calc( (var (--open) * .5s) + (var(--closed) * .25s)) ;
+
+//		transition: all var(--duration) ease-out allow-discrete;
+//		opacity: var (--open);
+//	｝
+
+//	&[open] {
+//		--open: 1;
+//	｝
+
+//	@starting-style {
+//		--open: 1;
+//		&[open] {
+//			--open: 0;
+//		｝
+//	}
+//}
