@@ -18,5 +18,5 @@ class Response {
 @ObjectType()
 export class DomainPriceResponse extends ResponseSchema {
     @Field()
-    declare data?: Response
+    data?: Response
 }

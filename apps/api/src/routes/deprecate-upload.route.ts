@@ -4,7 +4,7 @@ import fs from "fs/promises"
 import { GraphQLError } from "libs/graphql-error"
 //import { uploadFile } from "functions/s3"
 
-import { AssetModel } from "../entities/asset/asset.type"
+import { AssetModel } from "entities/asset/asset.type"
 import { authHandler } from "auth/auth-handler"
 import { uploadToCloudflareImages } from "libs/cloudflare/upload-to-cloudflare-images"
 import type { File } from "formidable"
@@ -96,7 +96,7 @@ router.post("/", withBody, async context => {
         }
 
         context.status = uploadResponse.success
-            ? 200 || uploadResponse?.errors[0]?.code
+            ? 200 || uploadResponse.errors[0].code
             : 400
     } catch (error: any | GraphQLError) {
         if (!(error instanceof GraphQLError)) console.log(error)

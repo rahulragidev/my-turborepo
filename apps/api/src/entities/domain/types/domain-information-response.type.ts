@@ -19,5 +19,5 @@ import { ResponseSchema } from "types/response-schema.type"
 @ObjectType()
 export class DomainInformationResponse extends ResponseSchema {
     @Field(_type => DomainResponse)
-    declare data?: DomainResponse
+    data?: DomainResponse
 }

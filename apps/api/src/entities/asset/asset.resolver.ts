@@ -11,7 +11,7 @@ import {
 import { Asset } from "./asset.type"
 import { AssetResponse } from "./types/asset.response"
 import { AssetsResponse } from "./types/assets.response"
-import type { AuthRequestContext } from "auth/request-context"
+import { AuthRequestContext } from "auth/request-context"
 
 @Resolver(_of => Asset)
 export class AssetResolver {

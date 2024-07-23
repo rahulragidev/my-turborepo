@@ -1,7 +1,6 @@
 import { Field, ID, ObjectType } from "type-graphql"
-import { Prop, getModelForClass, modelOptions } from "@typegoose/typegoose"
-import { User } from "../user/user.type"
-import type { Ref } from "@typegoose/typegoose"
+import { Prop, Ref, getModelForClass, modelOptions } from "@typegoose/typegoose"
+import { User } from "entities/user/user.type"
 
 @ObjectType({ description: "Asset" })
 @modelOptions({ schemaOptions: { timestamps: true } })

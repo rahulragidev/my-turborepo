@@ -1,4 +1,4 @@
-import { FrameworkEnum } from "../../entities/template/types/framework.enum"
+import { FrameworkEnum } from "entities/template/types/framework.enum"
 import {
     VercelAccessToken,
     VercelTeamId,

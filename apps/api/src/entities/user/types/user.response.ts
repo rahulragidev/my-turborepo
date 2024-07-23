@@ -5,5 +5,5 @@ import { User } from "../user.type"
 @ObjectType({ description: "User Response" })
 export class UserResponse extends ResponseSchema {
     @Field(_type => User, { nullable: true })
-    declare data?: User
+    data?: User
 }

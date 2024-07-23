@@ -1,7 +1,7 @@
 import fetch from "node-fetch"
 import { URL } from "url"
 import { VercelAccessToken, VercelTeamId } from "config"
-import { VercelProjectDomainsResponse } from "../../../entities/site/types/vercel-domain.response"
+import { VercelProjectDomainsResponse } from "entities/site/types/vercel-domain.response"
 import { logger } from "logger"
 
 const options = {

@@ -35,5 +35,5 @@ export class DomainConfigurationInterface {
 @ObjectType({ description: "Domain Configuration Response" })
 export class DomainConfigurationResponse extends ResponseSchema {
     @Field(_type => DomainConfigurationInterface, { nullable: true })
-    declare data?: DomainConfigurationInterface
+    data?: DomainConfigurationInterface
 }

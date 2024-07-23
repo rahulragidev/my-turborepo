@@ -1,16 +1,16 @@
 import GraphQLJSON from "graphql-type-json"
-import { Asset } from "../asset/asset.type"
+import { Asset } from "entities/asset/asset.type"
 import { Field, ID, Int, ObjectType } from "type-graphql"
 import { IsAlpha, IsLowercase } from "class-validator"
 import {
     Pre,
     Prop,
+    Ref,
     getModelForClass,
     modelOptions
 } from "@typegoose/typegoose"
-import { Site } from "../site/site.type"
-import { User } from "../user/user.type"
-import type { Ref } from "@typegoose/typegoose"
+import { Site } from "entities/site/site.type"
+import { User } from "entities/user/user.type"
 
 function sanitize(text: string) {
     return text

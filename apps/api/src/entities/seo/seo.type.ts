@@ -1,9 +1,8 @@
-import { Asset } from "../asset/asset.type"
+import { Asset } from "entities/asset/asset.type"
 import { Field, ID, ObjectType } from "type-graphql"
-import { Page } from "../page/page.type"
-import { Prop,  getModelForClass, modelOptions } from "@typegoose/typegoose"
-import { Site } from "../site/site.type"
-import type { Ref } from "@typegoose/typegoose"
+import { Page } from "entities/page/page.type"
+import { Prop, Ref, getModelForClass, modelOptions } from "@typegoose/typegoose"
+import { Site } from "entities/site/site.type"
 
 @ObjectType({ description: "SEO" })
 @modelOptions({ schemaOptions: { timestamps: true } })

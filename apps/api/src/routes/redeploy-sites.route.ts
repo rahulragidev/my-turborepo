@@ -3,7 +3,7 @@
 import Koa, { Context } from "koa"
 import Router from "@koa/router"
 import koaBody from "koa-body"
-import { deployAllSitesByTemplate } from "../entities/site/site.controller"
+import { deployAllSitesByTemplate } from "entities/site/site.controller"
 
 const withBody = koaBody({
     json: true

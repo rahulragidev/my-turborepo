@@ -5,7 +5,7 @@ import { logger } from "logger"
 
 import { URL } from "url"
 import { VercelAccessToken, VercelTeamId } from "config"
-import { VercelProjectDomain } from "../../../entities/site/types/vercel-domain.response"
+import { VercelProjectDomain } from "entities/site/types/vercel-domain.response"
 
 const options = {
     method: "POST",

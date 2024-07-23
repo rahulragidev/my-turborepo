@@ -1,6 +1,6 @@
 import Stripe from "stripe"
 
-import { StripePrice } from "../../entities/template/types/stripe-price.type"
+import { StripePrice } from "entities/template/types/stripe-price.type"
 import { stripe } from "utils/stripe"
 
 const getStripeProductById = async (

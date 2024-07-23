@@ -11,5 +11,5 @@ class SiteInfoData implements Partial<Site> {
 @ObjectType({ description: "Site Response" })
 export class SiteInfo extends ResponseSchema {
     @Field(_type => SiteInfoData, { nullable: true })
-    declare data?: SiteInfoData
+    data?: SiteInfoData
 }

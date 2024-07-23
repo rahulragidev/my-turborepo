@@ -7,12 +7,12 @@ import {
     Pre,
     // Ref,
     Prop,
+    Ref,
     getModelForClass,
     modelOptions,
     prop
 } from "@typegoose/typegoose"
-import { Site } from "../site/site.type"
-import type { Ref } from "@typegoose/typegoose"
+import { Site } from "entities/site/site.type"
 // import { isEmail, isPhoneNumber } from "class-validator"
 // import { user_uid } from "lib/uid"
 // import { nanoid } from 'nanoid'

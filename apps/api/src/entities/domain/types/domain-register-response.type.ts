@@ -60,5 +60,5 @@ class ResponseInterface {
 @ObjectType({ description: "Domain Information" })
 export class DomainRegisterResponse extends ResponseSchema {
     @Field(_type => ResponseInterface)
-    declare data?: ResponseInterface
+    data?: ResponseInterface
 }

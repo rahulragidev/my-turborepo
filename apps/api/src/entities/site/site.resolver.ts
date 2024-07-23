@@ -10,11 +10,13 @@ import {
     Resolver,
     Root
 } from "type-graphql"
-import { Asset, AssetModel } from "../asset/asset.type"
+import { Asset, AssetModel } from "entities/asset/asset.type"
+import { AuthRequestContext } from "auth/request-context"
 import { ChangeSiteTemplateResponse } from "./types/change-site-templates.response"
 import { CreateSiteResponse } from "./types/create-site.response"
 import { DeploySiteResponse } from "./types/deploy-response"
-import { Page, PageModel } from "../page/page.type"
+import { DocumentType } from "@typegoose/typegoose"
+import { Page, PageModel } from "entities/page/page.type"
 import { ResponseSchema } from "types/response-schema.type"
 import { Site } from "./site.type"
 import { SiteDomainsResponse } from "./types/site-domains.response"
@@ -23,13 +25,11 @@ import { SiteResponse } from "./types/site.response"
 import { SiteStatusResponse } from "./types/site-status.response"
 import { SitesResponse } from "./types/sites.response"
 import { UpdateSiteInput } from "./types/update-site.input"
-import { User, UserModel } from "../user/user.type"
+import { User, UserModel } from "entities/user/user.type"
 import { VercelProjectDomain } from "./types/vercel-domain.response"
 import { getProject } from "libs/vercel"
-import { getRootPage } from "../page/page.controller"
+import { getRootPage } from "entities/page/page.controller"
 import { logger } from "logger"
-import type { AuthRequestContext } from "auth/request-context"
-import type { DocumentType } from "@typegoose/typegoose"
 
 @Resolver(_of => Site)
 export class SiteResolver {

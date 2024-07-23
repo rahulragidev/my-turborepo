@@ -2,7 +2,7 @@ import * as jwt from "auth/jwt"
 
 import { AuthChecker } from "type-graphql"
 import { AuthRequestContext } from "auth/request-context"
-import { UserModel } from "../entities/user/user.type"
+import { UserModel } from "entities/user/user.type"
 import { apiKey } from "config"
 import type { Context as KoaContext } from "koa"
 

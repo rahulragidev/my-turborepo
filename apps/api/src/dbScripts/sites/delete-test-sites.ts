@@ -1,6 +1,6 @@
 import { GraphQLError } from "graphql"
-import { PageModel } from "../../entities/page/page.type"
-import { SiteModel } from "../../entities/site/site.type"
+import { PageModel } from "entities/page/page.type"
+import { SiteModel } from "entities/site/site.type"
 import { Types } from "mongoose"
 import { deleteProject } from "libs/vercel"
 

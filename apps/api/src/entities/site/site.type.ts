@@ -1,19 +1,19 @@
 import unslugify from "utils/unslugify"
-import { Asset } from "../asset/asset.type"
+import { Asset } from "entities/asset/asset.type"
 import { Field, ID, Int, ObjectType } from "type-graphql"
-import { Page } from "../page/page.type"
-import { Template } from "../template/template.type"
-import { User } from "../user/user.type"
-import { VercelProjectDomain } from "./types/vercel-domain.response"
+import { Page } from "entities/page/page.type"
 import {
+    Ref,
     getModelForClass,
     modelOptions,
     post,
     pre,
     prop
 } from "@typegoose/typegoose"
+import { Template } from "entities/template/template.type"
+import { User } from "entities/user/user.type"
+import { VercelProjectDomain } from "./types/vercel-domain.response"
 import { reservedNames } from "utils/reserved-names"
-import type { Ref } from "@typegoose/typegoose"
 // import { Types } from "mongoose"
 /**
  * Site in Lokus <=> Project in Vercel

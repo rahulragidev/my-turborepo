@@ -1,8 +1,8 @@
 import GraphQLJSON from "graphql-type-json"
-import { Asset } from "../../asset/asset.type"
+import { Asset } from "entities/asset/asset.type"
 import { Field, ID, InputType } from "type-graphql"
 import { Page } from "../page.type"
-import type { Ref } from "@typegoose/typegoose"
+import { Ref } from "@typegoose/typegoose"
 
 @InputType()
 export class UpdatePageInput implements Partial<Page> {

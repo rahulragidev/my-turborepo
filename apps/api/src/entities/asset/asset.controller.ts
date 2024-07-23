@@ -57,7 +57,7 @@ export const libraryUsage = async (
         const assets = await AssetModel.find({ owner })
         if (assets.length > 0) {
             for (let index = 0; index < assets.length; index++) {
-                totalSize = totalSize + assets[index]!.size
+                totalSize = totalSize + assets[index].size
             }
         }
         return totalSize
@@ -117,29 +117,27 @@ export const deleteAllUserAssets = async (
 ): Promise<ResponseSchema> => {
     try {
         const assets = await AssetModel.find({ owner: context?.user?.id })
-        if (!assets) throw new GraphQLError("No assets found")
-
         if (assets.length > 0) {
             for (let index = 0; index < assets.length; index++) {
-                console.log("Commencing deletion of asset", assets[index]!.key)
-                const deleteFileResponse = await deleteFile(assets[index]!.key!)
+                console.log("Commencing deletion of asset", assets[index].key)
+                const deleteFileResponse = await deleteFile(assets[index].key!)
                 if (deleteFileResponse.$metadata.httpStatusCode !== 200)
                     throw new GraphQLError(
                         `deleteFile failed with response: ${deleteFileResponse.$metadata.httpStatusCode} \n requestId: ${deleteFileResponse.$metadata.requestId}`
                     )
 
-                console.log("deleted from bucket", assets[index]!.key!)
+                console.log("deleted from bucket", assets[index].key)
 
                 const deleteAsset = await AssetModel.findByIdAndDelete(
-                    assets[index]!.id
+                    assets[index].id
                 )
                 if (!deleteAsset)
                     throw new GraphQLError(
-                        `deletion failed on Asset for ${assets[index]!._id}`
+                        `deletion failed on Asset for ${assets[index]._id}`
                     )
                 console.log(
                     "deleted from Asset Instance on DB:",
-                    assets[index]!._id
+                    assets[index]._id
                 )
             }
             return {
@@ -179,33 +177,33 @@ export const deleteAssets = async (
             // delete each asset
             for (let index = 0; index < assets.length; index++) {
                 if (
-                    assets[index]!.owner.toString() !==
+                    assets[index].owner.toString() !==
                     context.user!.id.toString()
                 ) {
                     throw new GraphQLError(
                         `You are not authorized to delete this asset`
                     )
                 }
-                console.log("Commencing deletion of asset", assets[index]!.key!)
+                console.log("Commencing deletion of asset", assets[index].key)
 
-                const deleteFromBucket = await deleteFile(assets[index]!.key!)
+                const deleteFromBucket = await deleteFile(assets[index].key!)
                 if (deleteFromBucket.$metadata.httpStatusCode !== 200)
                     throw new GraphQLError(
-                        `deletion failed on cloudflare for key ${assets[index]!.key!}`
+                        `deletion failed on cloudflare for key ${assets[index].key}`
                     )
-                console.log("deleted from cloudflare", assets[index]!.key!)
+                console.log("deleted from cloudflare", assets[index].key)
 
                 const deleteAsset = await AssetModel.findByIdAndDelete(
-                    assets[index]!.id
+                    assets[index].id
                 )
                 if (!deleteAsset)
                     throw new GraphQLError(
-                        `deletion failed on Asset for ${assets[index]!._id}`
+                        `deletion failed on Asset for ${assets[index]._id}`
                     )
 
                 console.log(
                     "deleted from Asset Instance on DB:",
-                    assets[index]!._id
+                    assets[index]._id
                 )
                 deleteCount = deleteCount + 1
             }

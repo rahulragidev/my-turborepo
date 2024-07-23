@@ -7,7 +7,7 @@ const LOG_LEVEL = process.env.LOG_LEVEL || "trace"
 export const logger = pino<"log">({
     level: LOG_LEVEL,
     customLevels: {
-        log: pino.levels.values.debug ?? 35
+        log: pino.levels.values.debug
     }
 })
 

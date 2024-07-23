@@ -10,7 +10,7 @@ import { PageFilterEnum } from "./types/page-filter.enum"
 import { PageResponse } from "./types/page.response"
 import { PagesResponse } from "./types/pages.response"
 import { ResponseSchema } from "types/response-schema.type"
-import { SiteModel } from "../site/site.type"
+import { SiteModel } from "entities/site/site.type"
 import { Types } from "mongoose"
 import { UpdatePageInput } from "./types/update-page-input"
 import { UpdatePagesPriorityInput } from "./types/update-pages-priority.input"
@@ -778,7 +778,7 @@ export const updateSitePagesPriority = async (
                 message: "Site pages priority updated successfully"
             }
         }
-        throw new Error(bulkWriteResponse?.getWriteErrors()[0]?.errmsg)
+        throw new Error(bulkWriteResponse.getWriteErrors()[0].errmsg)
     } catch (error: any) {
         return {
             success: false,

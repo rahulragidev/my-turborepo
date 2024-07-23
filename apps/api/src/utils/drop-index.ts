@@ -1,4 +1,4 @@
-import { SiteModel } from "../entities/site/site.type"
+import { SiteModel } from "entities/site/site.type"
 
 const dropIndex = async () => {
     try {
