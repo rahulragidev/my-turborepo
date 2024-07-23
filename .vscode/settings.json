@@ -1,4 +1,6 @@
 {
 	"prettier.configPath": ".prettierrc.js",
-	"prettier.requireConfig": true
+	"prettier.requireConfig": true,
+	"vs-code-prettier-eslint.prettierLast": false,
+	"typescript.tsdk": "node_modules/typescript/lib"
 }
