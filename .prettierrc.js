@@ -1,12 +1,19 @@
 module.exports = {
 	semi: false,
 	tabWidth: 4,
-	useTabs: true,
+	useTabs: false,
 	singleQuote: false,
 	bracketSpacing: true,
 	arrowParens: "avoid",
-	bracketSameLine: true,
+	jsxBracketSameLine: true,
 	jsxSingleQuote: false,
-	trailingComma: "es5",
-	printWidth: 90,
+	trailingComma: "none",
+	overrides: [
+		{
+			files: "*.ts",
+			options: {
+				parser: "typescript",
+			},
+		},
+	],
 }
