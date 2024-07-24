@@ -1,5 +1,5 @@
-import { SiteModel } from "entities/site/site.type"
-import { TemplateModel } from "entities/template/template.type"
+import { SiteModel } from "../../entities/site/site.type"
+import { TemplateModel } from "../../entities/template/template.type"
 
 export const getIndexes = async () => {
     // await SiteModel.collection.createIndex({ slug: 1 }, { unique: true })

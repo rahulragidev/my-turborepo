@@ -1,8 +1,8 @@
 import { Field, ID, Int, ObjectType } from "type-graphql"
 import { IsCurrency } from "class-validator"
 import { Prop, getModelForClass, modelOptions } from "@typegoose/typegoose"
-import { Site } from "entities/site/site.type"
-import { User } from "entities/user/user.type"
+import { Site } from "../../entities/site/site.type"
+import { User } from "../../entities/user/user.type"
 import type { Ref } from "@typegoose/typegoose"
 
 @modelOptions({ schemaOptions: { timestamps: true } })

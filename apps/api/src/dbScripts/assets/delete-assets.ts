@@ -1,4 +1,4 @@
-import { Asset, AssetModel } from "entities/asset/asset.type"
+import { Asset, AssetModel } from "../../entities/asset/asset.type"
 import { FilterQuery } from "mongoose"
 
 export const deleteAssets = async (filter: FilterQuery<Asset>) => {

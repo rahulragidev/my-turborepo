@@ -13,7 +13,7 @@ import { connectToMongo } from "database/mongo"
 import { healthRouter } from "routes/health.route"
 import { logger, pinoKoa } from "./logger"
 import { redploysitesRouter } from "routes/redeploy-sites.route"
-import { resolvers } from "entities/resolvers"
+import { resolvers } from "./entities/resolvers"
 import { router as uploadRouter } from "routes/upload.route"
 
 const app = new Koa()

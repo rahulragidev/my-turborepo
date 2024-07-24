@@ -9,8 +9,8 @@
 
 import getProjectDomainsFromVercel from "libs/vercel/project/get-project-domains"
 
-import { PageModel } from "entities/page/page.type"
-import { SiteModel } from "entities/site/site.type"
+import { PageModel } from "../../entities/page/page.type"
+import { SiteModel } from "../../entities/site/site.type"
 import { logger } from "logger"
 // import { Types } from "mongoose"
 

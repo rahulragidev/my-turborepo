@@ -1,4 +1,4 @@
-import { TemplateModel } from "entities/template/template.type"
+import { TemplateModel } from "../../entities/template/template.type"
 
 const dropIndexes = async () => {
     try {

@@ -13,7 +13,7 @@ import {
     Resolver,
     Root
 } from "type-graphql"
-import { Site, SiteModel } from "entities/site/site.type"
+import { Site, SiteModel } from "../../entities/site/site.type"
 import { UpdateUserInput } from "./types/update-user.input"
 import { User, UserModel } from "./user.type"
 import { UserInput } from "./types/user.input"

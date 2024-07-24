@@ -1,7 +1,7 @@
 import Stripe from "stripe"
 import { Field, Int, ObjectType } from "type-graphql"
 import { GraphQLJSONObject } from "graphql-type-json"
-import { StripePrice } from "entities/template/types/stripe-price.type"
+import { StripePrice } from "../../template/types/stripe-price.type"
 
 @ObjectType()
 class StripeSubscription implements Partial<Stripe.Subscription> {

@@ -10,7 +10,7 @@ import { PageFilterEnum } from "./types/page-filter.enum"
 import { PageResponse } from "./types/page.response"
 import { PagesResponse } from "./types/pages.response"
 import { ResponseSchema } from "types/response-schema.type"
-import { SiteModel } from "entities/site/site.type"
+import { SiteModel } from "../../entities/site/site.type"
 import { Types } from "mongoose"
 import { UpdatePageInput } from "./types/update-page-input"
 import { UpdatePagesPriorityInput } from "./types/update-pages-priority.input"
@@ -810,7 +810,7 @@ export async function PagesPriorityNormalization() {
 
     // DEBUG: write pagebyparent to a local json file
     fs.writeFileSync(
-        // Users/praneethpike/Work/projects/lokus/lokus-api/dist/entities/page/pagesByParent.json
+        // Users/praneethpike/Work/projects/lokus/lokus-api/dist/../../entities/page/pagesByParent.json
         // output path file to Users/praneethpike/Work/projects/lokus/
         path.join(`${__dirname.slice(0, 39)}/pagesByParent.json`),
         JSON.stringify(pagesByParent, null, 2)
@@ -843,7 +843,7 @@ export async function PagesPriorityNormalization() {
     // }
 
     fs.writeFileSync(
-        // Users/praneethpike/Work/projects/lokus/lokus-api/dist/entities/page/pagesByParent.json
+        // Users/praneethpike/Work/projects/lokus/lokus-api/dist/../../entities/page/pagesByParent.json
         // output path file to Users/praneethpike/Work/projects/lokus/
         path.join(`${__dirname.slice(0, 39)}/updateQuery.json`),
         JSON.stringify(updateQuery, null, 2)

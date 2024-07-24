@@ -1,6 +1,6 @@
 import generateUniqueSlug from "./generate-unique-slug"
 import slugify from "./slugify"
-import { SiteModel } from "entities/site/site.type"
+import { SiteModel } from "../entities/site/site.type"
 
 // Reuse the generateUniqueSlug function from the previous answer
 const normalizeSlugs = async () => {

@@ -1,5 +1,5 @@
 import unslugify from "./unslugify"
-import { SiteModel } from "entities/site/site.type"
+import { SiteModel } from "../entities/site/site.type"
 
 export const normalizeSiteNames = async () => {
     try {

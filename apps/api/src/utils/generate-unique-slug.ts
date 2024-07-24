@@ -1,4 +1,4 @@
-import { SiteModel } from "entities/site/site.type"
+import { SiteModel } from "../entities/site/site.type"
 
 const generateUniqueSlug = async (slug: string): Promise<string> => {
     let newSlug = slug

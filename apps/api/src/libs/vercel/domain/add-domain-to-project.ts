@@ -1,7 +1,7 @@
 import fetch from "node-fetch"
 import { logger } from "logger"
 
-import { AddDomainToProjectResponse } from "entities/domain/types/ domain-add-to-project.type"
+import { AddDomainToProjectResponse } from "../../../entities/domain/types/ domain-add-to-project.type"
 import { URL } from "url"
 import { VercelAccessToken, VercelTeamId } from "config"
 

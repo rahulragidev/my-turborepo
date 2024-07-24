@@ -1,4 +1,4 @@
-import { User } from "entities/user/user.type"
+import { User } from "../../entities/user/user.type"
 import { getModelForClass, modelOptions, prop } from "@typegoose/typegoose"
 import type { Ref } from "@typegoose/typegoose"
 

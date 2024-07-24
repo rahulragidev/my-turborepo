@@ -4,7 +4,7 @@ import fs from "fs/promises"
 import { GraphQLError } from "libs/graphql-error"
 //import { uploadFile } from "functions/s3"
 
-import { AssetModel } from "entities/asset/asset.type"
+import { AssetModel } from "../entities/asset/asset.type"
 import {
     IUploadFileInput,
     uploadFile

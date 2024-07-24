@@ -1,4 +1,4 @@
-import { SiteModel } from "entities/site/site.type"
+import { SiteModel } from "../../entities/site/site.type"
 
 export default async function reindexSites() {
     try {

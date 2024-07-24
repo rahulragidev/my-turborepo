@@ -1,4 +1,4 @@
-import { Asset } from "entities/asset/asset.type"
+import { Asset } from "../../asset/asset.type"
 import { Field, ID, InputType } from "type-graphql"
 import { Site } from "../site.type"
 import type { Ref } from "@typegoose/typegoose"

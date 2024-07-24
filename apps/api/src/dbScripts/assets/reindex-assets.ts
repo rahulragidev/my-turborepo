@@ -1,4 +1,4 @@
-import { AssetModel } from "entities/asset/asset.type"
+import { AssetModel } from "../../entities/asset/asset.type"
 
 export default async function reindexAssets() {
     try {

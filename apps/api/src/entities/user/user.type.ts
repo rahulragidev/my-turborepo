@@ -11,7 +11,7 @@ import {
     modelOptions,
     prop
 } from "@typegoose/typegoose"
-import { Site } from "entities/site/site.type"
+import { Site } from "../../entities/site/site.type"
 // import { isEmail, isPhoneNumber } from "class-validator"
 // import { user_uid } from "lib/uid"
 // import { nanoid } from 'nanoid'

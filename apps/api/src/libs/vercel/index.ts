@@ -1,11 +1,11 @@
-import { FrameworkEnum } from "entities/template/types/framework.enum"
+import { FrameworkEnum } from "../../entities/template/types/framework.enum"
 import {
     VercelAccessToken,
     VercelTeamId,
     publicGraphQlEndpoint,
     revalidationSecretKey
 } from "config"
-// import { FrameworkEnum } from "entities/template/types/framework.enum"
+// import { FrameworkEnum } from "../../entities/template/types/framework.enum"
 import fetch from "node-fetch"
 import { ResponseSchema } from "types/response-schema.type"
 // import { ResponseSchema } from "types/responseSchema.type"

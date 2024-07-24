@@ -1,4 +1,4 @@
-import { TemplateModel } from "entities/template/template.type"
+import { TemplateModel } from "../../entities/template/template.type"
 
 export const resetIndexes = async () => {
     const response = await TemplateModel.collection.dropIndexes()
