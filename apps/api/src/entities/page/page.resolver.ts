@@ -9,18 +9,18 @@ import {
     Resolver,
     Root
 } from "type-graphql"
-import { AuthRequestContext } from "auth/request-context"
 import { Page, PageModel } from "./page.type"
 import { PageResponse } from "./types/page.response"
+import type { AuthRequestContext } from "auth/request-context"
 // import { PageBlock } from "./types/page-block.type"
 import { PageFilterEnum } from "./types/page-filter.enum"
 import { PagesResponse } from "./types/pages.response"
 // import { UpdatePageInput } from "./types/update-page-input"
 import { Asset, AssetModel } from "entities/asset/asset.type"
-import { DocumentType } from "@typegoose/typegoose"
 import { ResponseSchema } from "types/response-schema.type"
 import { UpdatePageInput } from "./types/update-page-input"
 import { UpdatePagesPriorityInput } from "./types/update-pages-priority.input"
+import type { DocumentType } from "@typegoose/typegoose"
 
 @Resolver(_of => Page)
 export class PageResolver {

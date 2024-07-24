@@ -5,5 +5,5 @@ import { Template } from "../template.type"
 @ObjectType({ description: "Template Response" })
 export class TemplateResponse extends ResponseSchema {
     @Field(_type => Template, { nullable: true })
-    data?: Template
+    declare data?: Template
 }

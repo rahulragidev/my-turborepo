@@ -1,9 +1,10 @@
 import { Field, ID, ObjectType } from "type-graphql"
 import { FrameworkEnum } from "./types/framework.enum"
 import { GitRepository } from "./types/git-repository.type"
-import { Ref, getModelForClass, modelOptions, prop } from "@typegoose/typegoose"
 import { StripeProduct } from "./types/stripe-product.type"
 import { User } from "entities/user/user.type"
+import { getModelForClass, modelOptions, prop } from "@typegoose/typegoose"
+import type { Ref } from "@typegoose/typegoose"
 
 @ObjectType({ description: "Template" })
 @modelOptions({ schemaOptions: { timestamps: true } })

@@ -11,11 +11,9 @@ import {
     Root
 } from "type-graphql"
 import { Asset, AssetModel } from "entities/asset/asset.type"
-import { AuthRequestContext } from "auth/request-context"
 import { ChangeSiteTemplateResponse } from "./types/change-site-templates.response"
 import { CreateSiteResponse } from "./types/create-site.response"
 import { DeploySiteResponse } from "./types/deploy-response"
-import { DocumentType } from "@typegoose/typegoose"
 import { Page, PageModel } from "entities/page/page.type"
 import { ResponseSchema } from "types/response-schema.type"
 import { Site } from "./site.type"
@@ -30,6 +28,8 @@ import { VercelProjectDomain } from "./types/vercel-domain.response"
 import { getProject } from "libs/vercel"
 import { getRootPage } from "entities/page/page.controller"
 import { logger } from "logger"
+import type { AuthRequestContext } from "auth/request-context"
+import type { DocumentType } from "@typegoose/typegoose"
 
 @Resolver(_of => Site)
 export class SiteResolver {

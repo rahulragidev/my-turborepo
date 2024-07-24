@@ -7,7 +7,6 @@ import {
     Pre,
     // Ref,
     Prop,
-    Ref,
     getModelForClass,
     modelOptions,
     prop
@@ -16,6 +15,7 @@ import { Site } from "entities/site/site.type"
 // import { isEmail, isPhoneNumber } from "class-validator"
 // import { user_uid } from "lib/uid"
 // import { nanoid } from 'nanoid'
+import type { Ref } from "@typegoose/typegoose"
 
 @ObjectType({ description: "User model" })
 @Pre<User>("save", async function () {

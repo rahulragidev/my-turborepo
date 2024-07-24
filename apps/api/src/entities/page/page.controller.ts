@@ -778,7 +778,7 @@ export const updateSitePagesPriority = async (
                 message: "Site pages priority updated successfully"
             }
         }
-        throw new Error(bulkWriteResponse.getWriteErrors()[0].errmsg)
+        throw new Error(bulkWriteResponse.getWriteErrors()[0]!.errmsg)
     } catch (error: any) {
         return {
             success: false,

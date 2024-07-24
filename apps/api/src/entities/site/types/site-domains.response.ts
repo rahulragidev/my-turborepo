@@ -5,5 +5,5 @@ import { VercelProjectDomainsResponse } from "./vercel-domain.response"
 @ObjectType()
 export class SiteDomainsResponse extends ResponseSchema {
     @Field(_type => VercelProjectDomainsResponse, { nullable: true })
-    data?: VercelProjectDomainsResponse
+    declare data?: VercelProjectDomainsResponse
 }

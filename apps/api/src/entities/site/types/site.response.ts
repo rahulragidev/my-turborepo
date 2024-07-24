@@ -5,5 +5,5 @@ import { Site } from "../site.type"
 @ObjectType({ description: "Site Response" })
 export class SiteResponse extends ResponseSchema {
     @Field(_type => Site, { nullable: true })
-    data?: Site
+    declare data?: Site
 }

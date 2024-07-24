@@ -167,5 +167,5 @@ export class SiteStatus {
 @ObjectType({ description: "Site status" })
 export class SiteStatusResponse extends ResponseSchema {
     @Field(_type => SiteStatus, { nullable: true })
-    data?: SiteStatus
+    declare data?: SiteStatus
 }

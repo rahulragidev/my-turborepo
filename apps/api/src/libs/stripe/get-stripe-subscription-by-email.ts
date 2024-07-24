@@ -46,8 +46,8 @@ const getStripeSubscriptionByEmail = async (
     // console.log(`${JSON.stringify(subscriptions.data[0], null, 2)}`)
     // console.log(JSON.stringify(subscriptions.data[0], null, 2))
     return {
-        ...subscriptions.data[0],
-        currentPlan: subscriptions?.data[0]?.items?.data[0]?.price || null
+        ...subscriptions.data[0]!,
+        currentPlan: subscriptions?.data[0]?.items?.data[0]?.price || undefined
     }
 }
 

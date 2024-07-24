@@ -1,7 +1,7 @@
 import { Asset } from "entities/asset/asset.type"
 import { Field, ID, InputType } from "type-graphql"
-import { Ref } from "@typegoose/typegoose"
 import { Site } from "../site.type"
+import type { Ref } from "@typegoose/typegoose"
 // import { VercelProjectDomain } from "./vercel-domain.response"
 
 @InputType()

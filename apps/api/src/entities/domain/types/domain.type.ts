@@ -1,4 +1,4 @@
-// @ts-expect-error because we don't have the type
+//// @ts-expect-error because we don't have the type
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface Response {
     domain: {

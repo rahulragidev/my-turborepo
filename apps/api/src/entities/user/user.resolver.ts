@@ -13,8 +13,6 @@ import {
     Resolver,
     Root
 } from "type-graphql"
-import { AuthRequestContext } from "auth/request-context"
-import { DocumentType } from "@typegoose/typegoose"
 import { Site, SiteModel } from "entities/site/site.type"
 import { UpdateUserInput } from "./types/update-user.input"
 import { User, UserModel } from "./user.type"
@@ -22,6 +20,8 @@ import { UserInput } from "./types/user.input"
 import { UserResponse } from "./types/user.response"
 import { logger } from "logger"
 import { revalidationSecretKey } from "config"
+import type { AuthRequestContext } from "auth/request-context"
+import type { DocumentType } from "@typegoose/typegoose"
 
 @Resolver(_of => User)
 export class UserResolver {

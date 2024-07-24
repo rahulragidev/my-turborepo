@@ -96,7 +96,7 @@ router.post("/", withBody, async context => {
         }
 
         context.status = uploadResponse.success
-            ? 200 || uploadResponse.errors[0].code
+            ? 200 || uploadResponse.errors[0]!.code
             : 400
     } catch (error: any | GraphQLError) {
         if (!(error instanceof GraphQLError)) console.log(error)

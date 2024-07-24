@@ -2,8 +2,8 @@ import GraphQLJSON from "graphql-type-json"
 import { Asset } from "entities/asset/asset.type"
 import { Field, ID } from "type-graphql"
 import { Page } from "../page.type"
-import { Ref } from "@typegoose/typegoose"
 import { Site } from "entities/site/site.type"
+import type { Ref } from "@typegoose/typegoose"
 
 export class PageInput implements Partial<Page> {
     @Field(_type => ID)
