@@ -10,7 +10,6 @@ import {
     Resolver,
     Root
 } from "type-graphql"
-import type { AuthRequestContext } from "auth/request-context"
 import { ResponseSchema } from "types/response-schema.type"
 import { StripeProduct } from "./types/stripe-product.type"
 import { Template } from "./template.type"
@@ -18,6 +17,7 @@ import { TemplateInput } from "./types/template.input"
 import { TemplateResponse } from "./types/template.response"
 import { TemplateUpdateInput } from "./types/template-update.input"
 import { TemplatesResponse } from "./types/templates.response"
+import type { AuthRequestContext } from "auth/request-context"
 import type { DocumentType } from "@typegoose/typegoose"
 
 @Resolver(_of => Template)
