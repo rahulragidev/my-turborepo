@@ -1,8 +1,0 @@
-overwrite: true
-# schema: "https://lokus-api.onrender.com/graphql"
-schema: "http://localhost:3005/graphql"
-# documents: "src/**/*.graphql"
-generates:
-    types/generated/types.ts:
-        plugins:
-            - "typescript"

@@ -3,39 +3,36 @@
 import { useEditor, EditorContent, JSONContent, Node } from "@tiptap/react"
 import StarterKit from "@tiptap/starter-kit"
 import FeaturedCardNode from "./template-extensions/featured-card-node"
-import ButtonNode from "@repo/tiptap-custom-extensions/button-node"
-import InlinePageLink from "@repo/tiptap-custom-extensions/inline-page-link"
+import ButtonNode from "./template-extensions/button-node"
+import InlinePageLink from "./template-extensions/inline-page-link"
 import TiptapImage from "@tiptap/extension-image"
 import TiptapLink from "@tiptap/extension-link"
 import templateExtensions from "./template-extensions"
 
 const Tiptap = ({
-	content,
-	htmlContent,
+    content,
+    htmlContent
 }: {
-	content?: JSONContent
-	htmlContent?: string
+    content?: JSONContent
+    htmlContent?: string
 }) => {
-	const editor = useEditor({
-		extensions: [...templateExtensions],
-		editable: false,
-		immediatelyRender: false,
-		onCreate: ({ editor }) => {
-			console.log("content received", content)
-			if (content) {
-				editor.commands.setContent(content)
-				return
-			}
-			if (htmlContent) {
-				editor.commands.setContent(htmlContent)
-				return
-			}
-		},
-	})
+    const editor = useEditor({
+        extensions: [...templateExtensions],
+        editable: false,
+        onCreate: ({ editor }) => {
+            console.log("content received", content)
+            if (content) {
+                editor.commands.setContent(content)
+                return
+            }
+            if (htmlContent) {
+                editor.commands.setContent(htmlContent)
+                return
+            }
+        }
+    })
 
-	
-
-	return <EditorContent editor={editor} readOnly={true} />
+    return <EditorContent editor={editor} readOnly={true} />
 }
 
 export default Tiptap

@@ -9,73 +9,85 @@ import Tiptap from "../components/tiptap/TipTap"
 
 // generate all Params for this site
 export const generateStaticParams = async () => {
-	// fetch all pages by Site
-	const pages = await getAllPagesBySite()
+    try {
+        // fetch all pages by Site
+        const pages = await getAllPagesBySite()
 
-	// map the data to the params to construct an array
-	const paths = pages.data?.data?.data?.map((page: Page) => ({
-		params: { slug: page.slug },
-	}))
+        // map the data to the params to construct an array
+        const paths =
+            pages.data?.data?.data?.map((page: Page) => ({
+                slug: page.slug.split("/") // Ensure slug is an array
+            })) || []
 
-	// return the array
-	return paths
+        // return the array
+        return paths
+    } catch (error) {
+        console.error("Error generating static params:", error)
+        return [] // Return an empty array if fetching fails
+    }
 }
 
 export async function generateMetadata({
-	params,
+    params
 }: {
-	params: ParamsType
+    params: ParamsType
 }): Promise<Metadata> {
-	try {
-		const page = await getPageBySlug(slugToUse(params))
-		const site = await getSideById()
+    try {
+        const page = await getPageBySlug(slugToUse(params))
+        const site = await getSideById()
 
-		const siteData = site?.data?.data?.data
+        const siteData = site?.data?.data?.data
 
-		if (!page?.data?.data?.success) {
-			throw new Error("Page not found")
-		}
+        if (!page?.data?.data?.success) {
+            throw new Error("Page not found")
+        }
 
-		const title = page.data.data?.data?.metaTitle ?? page.data.data?.data?.name
-		const description = page.data.data?.data?.metaDescription ?? ""
-		const primaryDomain = siteData?.primaryDomain
-		console.log("primaryDomain", primaryDomain)
+        const title =
+            page.data.data?.data?.metaTitle ?? page.data.data?.data?.name
+        const description = page.data.data?.data?.metaDescription ?? ""
+        const primaryDomain = siteData?.primaryDomain
+        console.log("primaryDomain", primaryDomain)
 
-		const ogImageURL = new URL(`https://${siteData?.primaryDomain}`)
-		ogImageURL.pathname = "/og"
-		ogImageURL.searchParams.append("sl", siteData?.textLogo as string)
-		ogImageURL.searchParams.append("pt", title as string)
-		ogImageURL.searchParams.append("url", (siteData?.primaryDomain as string) ?? "")
-		ogImageURL.searchParams.append("un", siteData?.owner?.name as string)
+        const ogImageURL = new URL(`https://${siteData?.primaryDomain}`)
+        ogImageURL.pathname = "/og"
+        ogImageURL.searchParams.append("sl", siteData?.textLogo as string)
+        ogImageURL.searchParams.append("pt", title as string)
+        ogImageURL.searchParams.append(
+            "url",
+            (siteData?.primaryDomain as string) ?? ""
+        )
+        ogImageURL.searchParams.append("un", siteData?.owner?.name as string)
 
-		return {
-			title,
-			description,
-			metadataBase: new URL(`https://${siteData?.primaryDomain}` as string),
-			openGraph: {
-				title,
-				description,
-				images: [
-					{
-						url: ogImageURL.toString(),
-					},
-				],
-				type: "website",
-				siteName: siteData?.name ?? "Hemingway Template",
-				url: `https://${siteData?.primaryDomain}`,
-			},
-		}
-	} catch (error) {
-		console.error(error)
-		return {
-			title: "Hemingway Template Lokus",
-			description: "Hemingway Template by Lokus",
-			openGraph: {
-				title: "Hemingway Template Lokus",
-				description: "Hemingway Template by Lokus",
-			},
-		}
-	}
+        return {
+            title,
+            description,
+            metadataBase: new URL(
+                `https://${siteData?.primaryDomain}` as string
+            ),
+            openGraph: {
+                title,
+                description,
+                images: [
+                    {
+                        url: ogImageURL.toString()
+                    }
+                ],
+                type: "website",
+                siteName: siteData?.name ?? "Hemingway Template",
+                url: `https://${siteData?.primaryDomain}`
+            }
+        }
+    } catch (error) {
+        console.error(error)
+        return {
+            title: "Hemingway Template Lokus",
+            description: "Hemingway Template by Lokus",
+            openGraph: {
+                title: "Hemingway Template Lokus",
+                description: "Hemingway Template by Lokus"
+            }
+        }
+    }
 }
 
 //export generateImageMetadata = async ({ params }: { params: ParamsType }):  => {
@@ -91,30 +103,28 @@ export async function generateMetadata({
 // Run dev and see if repoTiptap is console logged
 
 const Index = async ({ params }: { params: ParamsType }) => {
-	const page = await getPageBySlug(slugToUse(params))
+    const page = await getPageBySlug(slugToUse(params))
 
-	
+    if (!page?.data?.data?.success) {
+        notFound()
+    }
 
-	if (!page?.data?.data?.success) {
-		notFound()
-	}
-
-	return (
-		<div
-			suppressHydrationWarning
-			className="content py-4 px-8 mx-auto max-w-5xl min-h-[calc(100vh-6rem)]">
-			<Tiptap
-				content={page?.data?.data?.data?.jsonBody}
-				htmlContent={page?.data?.data?.data?.body as string}
-			/>
-			{/*<div
+    return (
+        <div
+            suppressHydrationWarning
+            className="content py-4 px-8 mx-auto max-w-5xl min-h-[calc(100vh-6rem)]">
+            <Tiptap
+                content={page?.data?.data?.data?.jsonBody}
+                htmlContent={page?.data?.data?.data?.body as string}
+            />
+            {/*<div
 				suppressHydrationWarning
 				dangerouslySetInnerHTML={{
 					__html: (page?.data?.data?.data?.body as string) || "",
 				}}
 			/>*/}
-		</div>
-	)
+        </div>
+    )
 }
 
 export default Index

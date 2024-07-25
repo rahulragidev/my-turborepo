@@ -1,39 +1,34 @@
 {
-	"extends": "@repo/typescript-config/nextjs.json",
-	"compilerOptions": {
-		"baseUrl": ".",
-		"target": "es5",
-		"lib": ["dom", "dom.iterable", "esnext"],
-		"allowJs": true,
-		"skipLibCheck": true,
-		"strict": true,
-		"forceConsistentCasingInFileNames": true,
-		"noEmit": true,
-		"esModuleInterop": true,
-		"module": "esnext",
-		"moduleResolution": "node",
-		"resolveJsonModule": true,
-		"isolatedModules": true,
-		"jsx": "preserve",
-		"incremental": true,
-		"plugins": [
-			{
-				"name": "next"
-			}
-		]
-	},
-	"include": [
-		"./pages/api/keys.js",
-		"next-env.d.ts",
-		"**/*.ts",
-		"**/*.tsx",
-		".next/types/**/*.ts",
-		"node_modules/@clerk/**/*",
-		"../../packages/tiptap-custom-extensions/src/button-node.tsx",
-		"../../packages/tiptap-custom-extensions/src/featured-blogs.tsx",
-		"../../packages/tiptap-custom-extensions/src/page-referrence.tsx",
-		"../../packages/tiptap-custom-extensions/src/inline-page-link.tsx",
-		"../../packages/tiptap-custom-extensions/src/page-node.tsx"
-	],
-	"exclude": ["node_modules"]
+    "extends": "@repo/typescript-config/nextjs.json",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "target": "es5",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "noEmit": true,
+        "esModuleInterop": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "jsx": "preserve",
+        "incremental": true,
+        "plugins": [
+            {
+                "name": "next"
+            }
+        ]
+    },
+    "include": [
+        "./pages/api/keys.js",
+        "next-env.d.ts",
+        "**/*.ts",
+        "**/*.tsx",
+        ".next/types/**/*.ts",
+        "node_modules/@clerk/**/*"
+    ],
+    "exclude": ["node_modules"]
 }

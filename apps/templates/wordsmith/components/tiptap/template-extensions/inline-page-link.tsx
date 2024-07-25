@@ -1,6 +1,5 @@
-import { NodeViewRendererProps, Node as TipTapNode } from "@tiptap/core"
+import { Node, NodeViewRendererProps } from "@tiptap/core"
 import { NodeViewWrapper, ReactNodeViewRenderer } from "@tiptap/react"
-import { FeatherIcon } from "lucide-react"
 import Link from "next/link"
 
 export interface PageReferenceOptions {
@@ -15,30 +14,22 @@ declare module "@tiptap/core" {
 			/**
 			 * Set a highlight mark
 			 */
-			addPageLink: (attributes?: {
-				href: string
-				name: string
-				isPublic: boolean
-			}) => ReturnType
+			addPageLink: (attributes?: { href: string; name: string }) => ReturnType
 		}
 	}
 }
 
 const InlinePageLinkNodeView = (props: NodeViewRendererProps) => {
-	const { editor } = props
-	// @ts-expect-error
-	const siteId = editor.options?.editorProps?.attributes?.siteId as string
 	return (
-		<NodeViewWrapper className="inline-flex items-center space-x-2 w-fit px-2 py-1 bg-blue-200 hover:bg-blue-300 text-blue-800 rounded-md transition-none hover:shadow-md">
-			<Link href={`/${siteId}/${props.node.attrs.href}`}>
+		<NodeViewWrapper className="inline w-fit p-1 underline-offset-2 underline hover:underline-offset-4 transition-all ">
+			<Link className="!no-underline" href={`/${props.node.attrs.href}`}>
 				{props.node.attrs.name}
 			</Link>
-			{!props.node.attrs.isPublic && <FeatherIcon height={14} />}
 		</NodeViewWrapper>
 	)
 }
 
-const InlinePageLink = TipTapNode.create<PageReferenceOptions>({
+const InlinePageLink = Node.create<PageReferenceOptions>({
 	name: "inline-page-link",
 
 	group: "inline",
@@ -59,9 +50,6 @@ const InlinePageLink = TipTapNode.create<PageReferenceOptions>({
 			},
 			HTMLAttributes: {
 				class: "text-blue-800 bg-blue-100 p-1 rounded-md",
-			},
-			isPublished: {
-				default: false,
 			},
 		}
 	},
