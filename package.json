@@ -1,31 +1,32 @@
 {
-	"name": "my-turborepo",
-	"private": true,
-	"scripts": {
-		"build": "turbo build",
-		"dev": "turbo dev --parallel",
-		"lint": "turbo lint",
-		"format": "prettier --write \"**/*.{ts,tsx,md}\""
-	},
-	"dependencies": {
-		"@repo/ui": "*",
-		"@repo/utils": "*",
-		"api": "*"
-	},
-	"devDependencies": {
-		"@repo/eslint-config": "*",
-		"@repo/typescript-config": "*",
-		"prettier": "^3.1.0",
-		"turbo": "^2.0.7",
-		"typescript": "5.3.3"
-	},
-	"engines": {
-		"node": ">=18"
-	},
-	"packageManager": "yarn@1.22.22",
-	"workspaces": [
-		"apps/*",
-		"apps/templates/*",
-		"packages/*"
-	]
+    "name": "my-turborepo",
+    "private": true,
+    "scripts": {
+        "build": "turbo build",
+        "dev": "turbo dev --parallel",
+        "lint": "turbo lint",
+        "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    },
+    "dependencies": {
+        "@repo/ui": "*",
+        "@repo/utils": "*",
+        "api": "*"
+    },
+    "devDependencies": {
+        "@repo/eslint-config": "*",
+        "@repo/typescript-config": "*",
+        "@repo/tiptap-custom-extensions": "*",
+        "prettier": "^3.1.0",
+        "turbo": "^2.0.7",
+        "typescript": "5.3.3"
+    },
+    "engines": {
+        "node": ">=18"
+    },
+    "packageManager": "yarn@1.22.22",
+    "workspaces": [
+        "apps/*",
+        "apps/templates/*",
+        "packages/*"
+    ]
 }

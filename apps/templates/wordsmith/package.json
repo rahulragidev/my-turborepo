@@ -11,6 +11,9 @@
         "generate:types": "graphql-codegen --config codegen.yml"
     },
     "dependencies": {
+        "@repo/utils": "*",
+        "@repo/ui": "*",
+        "@repo/tiptap-custom-extensions": "*",
         "@radix-ui/react-dropdown-menu": "^2.0.6",
         "@tiptap/core": "^2.1.16",
         "@tiptap/extension-color": "^2.1.14",

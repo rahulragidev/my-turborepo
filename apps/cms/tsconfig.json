@@ -28,7 +28,8 @@
         "**/*.ts",
         "**/*.tsx",
         ".next/types/**/*.ts",
-        "node_modules/@clerk/**/*"
+        "node_modules/@clerk/**/*",
+        "../../packages/tiptap-custom-extensions/src/button-node.tsx"
     ],
     "exclude": ["node_modules"]
 }

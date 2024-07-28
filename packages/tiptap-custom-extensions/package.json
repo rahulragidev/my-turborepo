@@ -1,0 +1,46 @@
+{
+    "name": "@repo/tiptap-custom-extensions",
+    "version": "0.0.0",
+    "private": true,
+    "exports": {
+        "./src/button-node": "./src/button-node.tsx"
+    },
+    "license": "MIT",
+    "type": "module",
+    "scripts": {
+        "lint": "eslint . --max-warnings 100",
+        "generate:component": "turbo gen react-component"
+    },
+    "devDependencies": {
+        "@repo/eslint-config": "*",
+        "@repo/typescript-config": "*",
+        "@turbo/gen": "^1.12.4",
+        "@types/node": "^20.9.0",
+        "@types/react": "^18.2.37",
+        "@types/eslint": "^8.34.0",
+        "@types/react-dom": "^18.2.15",
+        "eslint": "^8.34.0",
+        "typescript": "5.3.3",
+        "@tiptap/core": "^2.1.16",
+        "@tiptap/extension-color": "^2.1.14",
+        "@tiptap/extension-document": "^2.1.16",
+        "@tiptap/extension-highlight": "^2.1.14",
+        "@tiptap/extension-image": "^2.1.7",
+        "@tiptap/extension-link": "^2.1.7",
+        "@tiptap/extension-mention": "^2.3.0",
+        "@tiptap/extension-placeholder": "^2.1.7",
+        "@tiptap/extension-task-item": "^2.1.7",
+        "@tiptap/extension-task-list": "^2.1.7",
+        "@tiptap/extension-text-style": "^2.1.14",
+        "@tiptap/extension-underline": "^2.1.14",
+        "@tiptap/extension-youtube": "^2.1.7",
+        "@tiptap/pm": "^2.1.7",
+        "@tiptap/react": "^2.1.7",
+        "@tiptap/starter-kit": "^2.1.7",
+        "@tiptap/suggestion": "^2.2.6"
+    },
+    "dependencies": {
+        "react": "18.3.1",
+        "@repo/utils": "*"
+    }
+}

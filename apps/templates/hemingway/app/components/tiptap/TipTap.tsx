@@ -3,7 +3,7 @@
 import { useEditor, EditorContent, JSONContent, Node } from "@tiptap/react"
 import StarterKit from "@tiptap/starter-kit"
 import FeaturedCardNode from "./template-extensions/featured-card-node"
-import ButtonNode from "./template-extensions/button-node"
+import ButtonNode from "@repo/tiptap-custom-extensions/src/button-node"
 import InlinePageLink from "./template-extensions/inline-page-link"
 import TiptapImage from "@tiptap/extension-image"
 import TiptapLink from "@tiptap/extension-link"

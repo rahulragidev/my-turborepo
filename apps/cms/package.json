@@ -13,6 +13,7 @@
     "dependencies": {
         "@repo/utils": "*",
         "@repo/ui": "*",
+        "@repo/tiptap-custom-extensions": "*",
         "@builder.io/react-hydration-overlay": "^0.0.8",
         "@clerk/nextjs": "^4.29.12",
         "@radix-ui/react-alert-dialog": "^1.0.3",
