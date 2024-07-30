@@ -4,29 +4,29 @@ import { useEditor, EditorContent, JSONContent, Node } from "@tiptap/react"
 import templateExtensions from "./template-extensions"
 
 const Tiptap = ({
-	content,
-	htmlContent,
+    content,
+    htmlContent
 }: {
-	content?: JSONContent
-	htmlContent?: string
+    content?: JSONContent
+    htmlContent?: string
 }) => {
-	const editor = useEditor({
-		extensions: [...templateExtensions],
-		editable: false,
-		onCreate: ({ editor }) => {
-			console.log("content received", content)
-			if (content) {
-				editor.commands.setContent(content)
-				return
-			}
-			if (htmlContent) {
-				editor.commands.setContent(htmlContent)
-				return
-			}
-		},
-	})
+    const editor = useEditor({
+        extensions: [...templateExtensions],
+        editable: false,
+        onCreate: ({ editor }) => {
+            console.log("content received", content)
+            if (content) {
+                editor.commands.setContent(content)
+                return
+            }
+            if (htmlContent) {
+                editor.commands.setContent(htmlContent)
+                return
+            }
+        }
+    })
 
-	return <EditorContent editor={editor} readOnly={true} />
+    return <EditorContent editor={editor} readOnly={true} />
 }
 
 export default Tiptap
