@@ -9,11 +9,15 @@
     "license": "MIT",
     "scripts": {
         "lint": "eslint . --max-warnings 100",
-        "generate:component": "turbo gen react-component"
+        "generate:component": "turbo gen react-component",
+        "generate:types": "graphql-codegen --config codegen.yml"
     },
     "devDependencies": {
         "@repo/eslint-config": "*",
         "@repo/typescript-config": "*",
+        "graphql-request": "^6.1.0",
+        "@graphql-codegen/cli": "^5.0.0",
+        "@graphql-codegen/client-preset": "^4.0.1",
         "@turbo/gen": "^1.12.4",
         "@types/node": "^20.9.0",
         "@types/react": "^18.2.37",
